@@ -5,8 +5,8 @@ services:
     buildCommand: |
       apt-get update && \
       apt-get install -y chromium-browser && \
-      npm install
-    startCommand: npm start
-    envVars:
-      - key: CHROME_PATH
-        value: /usr/bin/chromium-browser
+      npm install && \
+      which chromium-browser > .chrome-path
+    startCommand: |
+      export CHROME_PATH=$(cat .chrome-path) && \
+      npm start
