@@ -13,7 +13,7 @@ app.post('/scrape', async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      executablePath: process.env.CHROME_PATH || '/usr/bin/chromium-browser',
+      executablePath: process.env.CHROME_PATH,
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
