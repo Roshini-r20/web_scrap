@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: puppeteer-scraper-api
+    env: node
+    buildCommand: |
+      apt-get update && \
+      apt-get install -y chromium && \
+      npm install
+    startCommand: npm start
+    envVars:
+      - key: CHROME_PATH
+        value: /usr/bin/chromium
